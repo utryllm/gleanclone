@@ -28,14 +28,17 @@ CONFIG = load_config()
 
 def clone_repo(repo_url, clone_dir):
     try:
-        if not os.path.exists(clone_dir):
-            git.Repo.clone_from(repo_url, clone_dir)
-        else:
-            repo = git.Repo(clone_dir)
-            repo.remotes.origin.pull()
+        if os.path.exists(clone_dir):
+            logging.warning(f"Directory {clone_dir} already exists. Deleting and re-cloning...")
+            import shutil
+            shutil.rmtree(clone_dir)  # Force re-clone
+
+        logging.info(f"Cloning repository {repo_url} into {clone_dir}...")
+        git.Repo.clone_from(repo_url, clone_dir)
+        logging.info("Repository cloned successfully!")
+
     except git.exc.GitError as e:
         logging.error(f"Error cloning repository: {e}")
-        return
 
 def initialize_index():
     os.makedirs(INDEX_DIR, exist_ok=True)
@@ -179,7 +182,7 @@ def scan_directory_incremental(directory):
 
 if __name__ == "__main__":
     config = load_config()
-    repo_url = config.get("repo_url", "https://github.com/pauldragoslav/Spring-boot-Banking.git")
+    repo_url = config.get("repo_url", "https://github.com/sbathina/BankApp.git")
     clone_dir = config.get("clone_dir", "./cloned_repo")
 
     clone_repo(repo_url, clone_dir)
