@@ -1,4 +1,5 @@
 {
     "repo_url": "https://github.com/pauldragoslav/Spring-boot-Banking",
-    "clone_dir": "./gleanclone"
+    "clone_dir": "./gleanclone",
+    "openai_api_key": ""
 }
