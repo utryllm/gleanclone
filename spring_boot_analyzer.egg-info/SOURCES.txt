@@ -1,0 +1,11 @@
+README.md
+setup.py
+spring_boot_analyzer/__init__.py
+spring_boot_analyzer/analyzer.py
+spring_boot_analyzer/cli.py
+spring_boot_analyzer.egg-info/PKG-INFO
+spring_boot_analyzer.egg-info/SOURCES.txt
+spring_boot_analyzer.egg-info/dependency_links.txt
+spring_boot_analyzer.egg-info/entry_points.txt
+spring_boot_analyzer.egg-info/requires.txt
+spring_boot_analyzer.egg-info/top_level.txt

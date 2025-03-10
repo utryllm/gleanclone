@@ -1,0 +1,2 @@
+[console_scripts]
+spring-boot-analyzer = spring_boot_analyzer.cli:main
