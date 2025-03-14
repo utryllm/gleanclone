@@ -19,18 +19,24 @@ def main():
     query_parser.add_argument("query_text", help="The query to process")
     query_parser.add_argument("--summary-dir", default="summary", help="Path to the summary directory")
     query_parser.add_argument("--no-verify", action="store_true", help="Skip self-verification step")
+    query_parser.add_argument("--response-format", choices=["both", "original", "verification"], default="both", 
+                             help="Which responses to show: both, original only, or verification only")
     
     # Feature implementation command
     feature_parser = subparsers.add_parser("feature", help="Analyze how to implement a new feature")
     feature_parser.add_argument("feature_description", help="Description of the feature to implement")
     feature_parser.add_argument("--summary-dir", default="summary", help="Path to the summary directory")
     feature_parser.add_argument("--no-verify", action="store_true", help="Skip self-verification step")
+    feature_parser.add_argument("--response-format", choices=["both", "original", "verification"], default="both", 
+                               help="Which responses to show: both, original only, or verification only")
     
     # Impact analysis command
     impact_parser = subparsers.add_parser("impact", help="Analyze the impact of a code change")
     impact_parser.add_argument("change_description", help="Description of the code change")
     impact_parser.add_argument("--summary-dir", default="summary", help="Path to the summary directory")
     impact_parser.add_argument("--no-verify", action="store_true", help="Skip self-verification step")
+    impact_parser.add_argument("--response-format", choices=["both", "original", "verification"], default="both", 
+                              help="Which responses to show: both, original only, or verification only")
     
     # Interactive mode command
     interactive_parser = subparsers.add_parser("interactive", help="Start interactive mode")
@@ -57,7 +63,27 @@ def main():
     # Execute the appropriate command
     if args.command == "query":
         response = processor.process_query(args.query_text, verify=verify)
-        print(f"\n{response}")
+        
+        # Handle response format
+        if hasattr(args, 'response_format') and verify:
+            if "## Original Response:" in response and "## Verification:" in response:
+                if args.response_format == "original":
+                    # Extract only the original response
+                    original_part = response.split("## Verification:")[0].replace("## Original Response:", "").strip()
+                    print(f"\n{original_part}")
+                elif args.response_format == "verification":
+                    # Extract only the verification
+                    verification_part = response.split("## Verification:")[1].strip()
+                    print(f"\n{verification_part}")
+                else:
+                    # Show both (default)
+                    print(f"\n{response}")
+            else:
+                # If the response doesn't have the expected format, just print it as is
+                print(f"\n{response}")
+        else:
+            # If no response format specified or verification is disabled, print as is
+            print(f"\n{response}")
         
     elif args.command == "feature":
         response = processor.analyze_feature_implementation(args.feature_description)

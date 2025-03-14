@@ -413,15 +413,22 @@ class QueryProcessor:
         
         # Step 3: Build and execute prompt
         prompt = self.build_prompt(query, context, template_name)
-        response = self.llm_client.analyze_application(prompt)
+        original_response = self.llm_client.analyze_application(prompt)
         
         # Step 4: Self-correction if requested
         if verify:
             logger.info("Performing self-verification of response")
-            verified_response = self._verify_response(response, context)
-            return verified_response
+            verified_response = self._verify_response(original_response, context)
+            
+            # Return both responses in a formatted way
+            combined_response = f"""## Original Response:
+{original_response}
+
+## Verification:
+{verified_response}"""
+            return combined_response
         
-        return response
+        return original_response
 
     def _verify_response(self, response, context):
         """Verify the response against the context for accuracy."""
@@ -457,10 +464,13 @@ Review the original response and verify:
             used_by = ", ".join(relationships["used_by"]) if relationships["used_by"] else "None"
             matrix_text += f"- {component}:\n  - Depends on: {depends_on}\n  - Used by: {used_by}\n\n"
         
+        # Create a copy of the template for replacements
+        verification_prompt = verification_template
+        
         # Replace placeholders in the template
-        verification_prompt = verification_template.replace("{insert original LLM response}", response)
-        verification_prompt = verification_template.replace("{insert relevant high-level application summary}", context["app_overview"]["summary"])
-        verification_prompt = verification_template.replace("{insert relevant portion of component relationship matrix}", matrix_text)
+        verification_prompt = verification_prompt.replace("{insert original LLM response}", response)
+        verification_prompt = verification_prompt.replace("{insert relevant high-level application summary}", context["app_overview"]["summary"])
+        verification_prompt = verification_prompt.replace("{insert relevant portion of component relationship matrix}", matrix_text)
         
         # For templates that don't use the exact placeholders
         verification_prompt = verification_prompt.replace("{response}", response)
