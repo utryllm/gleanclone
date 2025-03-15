@@ -87,11 +87,51 @@ def main():
         
     elif args.command == "feature":
         response = processor.analyze_feature_implementation(args.feature_description)
-        print(f"\n{response}")
+        
+        # Handle response format
+        if hasattr(args, 'response_format') and verify:
+            if "## Original Response:" in response and "## Verification:" in response:
+                if args.response_format == "original":
+                    # Extract only the original response
+                    original_part = response.split("## Verification:")[0].replace("## Original Response:", "").strip()
+                    print(f"\n{original_part}")
+                elif args.response_format == "verification":
+                    # Extract only the verification
+                    verification_part = response.split("## Verification:")[1].strip()
+                    print(f"\n{verification_part}")
+                else:
+                    # Show both (default)
+                    print(f"\n{response}")
+            else:
+                # If the response doesn't have the expected format, just print it as is
+                print(f"\n{response}")
+        else:
+            # If no response format specified or verification is disabled, print as is
+            print(f"\n{response}")
         
     elif args.command == "impact":
         response = processor.analyze_code_change_impact(args.change_description)
-        print(f"\n{response}")
+        
+        # Handle response format
+        if hasattr(args, 'response_format') and verify:
+            if "## Original Response:" in response and "## Verification:" in response:
+                if args.response_format == "original":
+                    # Extract only the original response
+                    original_part = response.split("## Verification:")[0].replace("## Original Response:", "").strip()
+                    print(f"\n{original_part}")
+                elif args.response_format == "verification":
+                    # Extract only the verification
+                    verification_part = response.split("## Verification:")[1].strip()
+                    print(f"\n{verification_part}")
+                else:
+                    # Show both (default)
+                    print(f"\n{response}")
+            else:
+                # If the response doesn't have the expected format, just print it as is
+                print(f"\n{response}")
+        else:
+            # If no response format specified or verification is disabled, print as is
+            print(f"\n{response}")
         
     elif args.command == "interactive":
         run_interactive_mode(processor, verify)

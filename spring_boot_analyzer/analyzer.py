@@ -386,6 +386,8 @@ class QueryProcessor:
         prompt = prompt.replace("{insert summaries of the 3-5 most relevant components}", components_text)
         prompt = prompt.replace("{insert API flow data for endpoints relevant to the query}", api_flows_text)
         prompt = prompt.replace("{insert specific question}", query)
+        prompt = prompt.replace("{insert description of proposed code change}", query)
+        prompt = prompt.replace("{insert feature description}", query)
         
         # For templates that don't use the exact placeholders
         prompt = prompt.replace("{app_overview}", context["app_overview"]["summary"])
