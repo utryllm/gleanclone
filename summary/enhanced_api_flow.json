@@ -1,195 +1,98 @@
 {
-  "api/v1/accounts:POST": {
-    "endpoint": "api/v1/accounts",
+  "/:GET": {
+    "endpoint": "/",
+    "method": "GET",
+    "controller": {
+      "file": "OwnerController.java",
+      "method": "initCreationForm",
+      "responsibility": "Handles / requests"
+    },
+    "serviceChain": [],
+    "repositoryAccess": [
+      {
+        "file": "OwnerRepository.java",
+        "method": "Unknown",
+        "dataAccessed": "Owner"
+      },
+      {
+        "file": "VetRepository.java",
+        "method": "Unknown",
+        "dataAccessed": "Vet"
+      }
+    ],
+    "dataModels": [],
+    "dependencies": []
+  },
+  "/:POST": {
+    "endpoint": "/",
     "method": "POST",
     "controller": {
-      "file": "AccountRestController.java",
-      "method": "checkAccountBalance",
-      "responsibility": "Handles api/v1/accounts requests"
+      "file": "OwnerController.java",
+      "method": "processCreationForm",
+      "responsibility": "Handles / requests"
     },
-    "serviceChain": [
-      {
-        "file": "AccountService.java",
-        "method": "Unknown",
-        "responsibility": "Business logic for api/v1/accounts"
-      }
-    ],
+    "serviceChain": [],
     "repositoryAccess": [
       {
-        "file": "AccountRepository.java",
+        "file": "OwnerRepository.java",
         "method": "Unknown",
-        "dataAccessed": "Account"
+        "dataAccessed": "Owner"
       },
       {
-        "file": "TransactionRepository.java",
+        "file": "VetRepository.java",
         "method": "Unknown",
-        "dataAccessed": "Transaction"
+        "dataAccessed": "Vet"
       }
     ],
-    "dataModels": [
-      "Account.java",
-      "Transaction.java"
-    ],
-    "dependencies": [
-      "AccountService.java"
-    ]
+    "dataModels": [],
+    "dependencies": []
   },
-  "api/v1/accounts:PUT": {
-    "endpoint": "api/v1/accounts",
-    "method": "PUT",
+  "api/v1/:GET": {
+    "endpoint": "api/v1/",
+    "method": "GET",
     "controller": {
-      "file": "AccountRestController.java",
-      "method": "createAccount",
-      "responsibility": "Handles api/v1/accounts requests"
+      "file": "PetController.java",
+      "method": "initCreationForm",
+      "responsibility": "Handles api/v1/ requests"
     },
-    "serviceChain": [
-      {
-        "file": "AccountService.java",
-        "method": "Unknown",
-        "responsibility": "Business logic for api/v1/accounts"
-      }
-    ],
+    "serviceChain": [],
     "repositoryAccess": [
       {
-        "file": "AccountRepository.java",
+        "file": "OwnerRepository.java",
         "method": "Unknown",
-        "dataAccessed": "Account"
+        "dataAccessed": "Owner"
       },
       {
-        "file": "TransactionRepository.java",
+        "file": "VetRepository.java",
         "method": "Unknown",
-        "dataAccessed": "Transaction"
+        "dataAccessed": "Vet"
       }
     ],
-    "dataModels": [
-      "Account.java",
-      "Transaction.java"
-    ],
-    "dependencies": [
-      "AccountService.java"
-    ]
+    "dataModels": [],
+    "dependencies": []
   },
-  "api/v1/transactions:POST": {
-    "endpoint": "api/v1/transactions",
+  "api/v1/:POST": {
+    "endpoint": "api/v1/",
     "method": "POST",
     "controller": {
-      "file": "TransactionRestController.java",
-      "method": "makeTransfer",
-      "responsibility": "Handles api/v1/transactions requests"
+      "file": "PetController.java",
+      "method": "processCreationForm",
+      "responsibility": "Handles api/v1/ requests"
     },
-    "serviceChain": [
-      {
-        "file": "AccountService.java",
-        "method": "Unknown",
-        "responsibility": "Business logic for api/v1/transactions"
-      },
-      {
-        "file": "TransactionService.java",
-        "method": "Unknown",
-        "responsibility": "Business logic for api/v1/transactions"
-      }
-    ],
+    "serviceChain": [],
     "repositoryAccess": [
       {
-        "file": "AccountRepository.java",
+        "file": "OwnerRepository.java",
         "method": "Unknown",
-        "dataAccessed": "Account"
+        "dataAccessed": "Owner"
       },
       {
-        "file": "TransactionRepository.java",
+        "file": "VetRepository.java",
         "method": "Unknown",
-        "dataAccessed": "Transaction"
+        "dataAccessed": "Vet"
       }
     ],
-    "dataModels": [
-      "Account.java",
-      "Transaction.java"
-    ],
-    "dependencies": [
-      "AccountService.java",
-      "TransactionService.java"
-    ]
-  },
-  "api/v1/withdraw:POST": {
-    "endpoint": "api/v1/withdraw",
-    "method": "POST",
-    "controller": {
-      "file": "TransactionRestController.java",
-      "method": "withdraw",
-      "responsibility": "Handles api/v1/withdraw requests"
-    },
-    "serviceChain": [
-      {
-        "file": "AccountService.java",
-        "method": "Unknown",
-        "responsibility": "Business logic for api/v1/withdraw"
-      },
-      {
-        "file": "TransactionService.java",
-        "method": "Unknown",
-        "responsibility": "Business logic for api/v1/withdraw"
-      }
-    ],
-    "repositoryAccess": [
-      {
-        "file": "AccountRepository.java",
-        "method": "Unknown",
-        "dataAccessed": "Account"
-      },
-      {
-        "file": "TransactionRepository.java",
-        "method": "Unknown",
-        "dataAccessed": "Transaction"
-      }
-    ],
-    "dataModels": [
-      "Account.java",
-      "Transaction.java"
-    ],
-    "dependencies": [
-      "AccountService.java",
-      "TransactionService.java"
-    ]
-  },
-  "api/v1/deposit:POST": {
-    "endpoint": "api/v1/deposit",
-    "method": "POST",
-    "controller": {
-      "file": "TransactionRestController.java",
-      "method": "deposit",
-      "responsibility": "Handles api/v1/deposit requests"
-    },
-    "serviceChain": [
-      {
-        "file": "AccountService.java",
-        "method": "Unknown",
-        "responsibility": "Business logic for api/v1/deposit"
-      },
-      {
-        "file": "TransactionService.java",
-        "method": "Unknown",
-        "responsibility": "Business logic for api/v1/deposit"
-      }
-    ],
-    "repositoryAccess": [
-      {
-        "file": "AccountRepository.java",
-        "method": "Unknown",
-        "dataAccessed": "Account"
-      },
-      {
-        "file": "TransactionRepository.java",
-        "method": "Unknown",
-        "dataAccessed": "Transaction"
-      }
-    ],
-    "dataModels": [
-      "Account.java",
-      "Transaction.java"
-    ],
-    "dependencies": [
-      "AccountService.java",
-      "TransactionService.java"
-    ]
+    "dataModels": [],
+    "dependencies": []
   }
 }

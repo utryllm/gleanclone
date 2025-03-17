@@ -1,96 +1,131 @@
 {
-    "api/v1/accounts": {
+    "/": {
         "endpoints": [
             {
-                "method": "checkAccountBalance",
-                "path": "/accounts",
-                "class": "AccountRestController",
-                "line_number": 39,
+                "method": "initCreationForm",
+                "path": "",
+                "class": "OwnerController",
+                "line_number": 71,
+                "http_method": "GET"
+            },
+            {
+                "method": "processCreationForm",
+                "path": "",
+                "class": "OwnerController",
+                "line_number": 76,
                 "http_method": "POST"
             },
             {
-                "method": "createAccount",
-                "path": "/accounts",
-                "class": "AccountRestController",
-                "line_number": 65,
-                "http_method": "PUT"
+                "method": "initFindForm",
+                "path": "",
+                "class": "OwnerController",
+                "line_number": 88,
+                "http_method": "GET"
+            },
+            {
+                "method": "processFindForm",
+                "path": "",
+                "class": "OwnerController",
+                "line_number": 93,
+                "http_method": "GET"
+            },
+            {
+                "method": "initUpdateOwnerForm",
+                "path": "",
+                "class": "OwnerController",
+                "line_number": 134,
+                "http_method": "GET"
+            },
+            {
+                "method": "processUpdateOwnerForm",
+                "path": "",
+                "class": "OwnerController",
+                "line_number": 139,
+                "http_method": "POST"
+            },
+            {
+                "method": "showOwner",
+                "path": "",
+                "class": "OwnerController",
+                "line_number": 164,
+                "http_method": "GET"
+            },
+            {
+                "method": "initNewVisitForm",
+                "path": "",
+                "class": "VisitController",
+                "line_number": 81,
+                "http_method": "GET"
+            },
+            {
+                "method": "processNewVisitForm",
+                "path": "",
+                "class": "VisitController",
+                "line_number": 88,
+                "http_method": "POST"
+            },
+            {
+                "method": "triggerException",
+                "path": "",
+                "class": "CrashController",
+                "line_number": 32,
+                "http_method": "GET"
+            },
+            {
+                "method": "welcome",
+                "path": "",
+                "class": "WelcomeController",
+                "line_number": 26,
+                "http_method": "GET"
+            },
+            {
+                "method": "showVetList",
+                "path": "",
+                "class": "VetController",
+                "line_number": 45,
+                "http_method": "GET"
+            },
+            {
+                "method": "showResourcesVetList",
+                "path": "",
+                "class": "VetController",
+                "line_number": 70,
+                "http_method": "GET"
             }
         ],
-        "service_calls": [
-            {
-                "class": "AccountRestController",
-                "service": "AccountService",
-                "field": "accountService"
-            }
-        ]
+        "service_calls": []
     },
-    "api/v1/transactions": {
+    "api/v1/": {
         "endpoints": [
             {
-                "method": "makeTransfer",
-                "path": "/transactions",
-                "class": "TransactionRestController",
-                "line_number": 42,
+                "method": "initCreationForm",
+                "path": "",
+                "class": "PetController",
+                "line_number": 93,
+                "http_method": "GET"
+            },
+            {
+                "method": "processCreationForm",
+                "path": "",
+                "class": "PetController",
+                "line_number": 100,
+                "http_method": "POST"
+            },
+            {
+                "method": "initUpdateForm",
+                "path": "",
+                "class": "PetController",
+                "line_number": 122,
+                "http_method": "GET"
+            },
+            {
+                "method": "processUpdateForm",
+                "path": "",
+                "class": "PetController",
+                "line_number": 127,
                 "http_method": "POST"
             }
         ],
-        "service_calls": [
-            {
-                "class": "TransactionRestController",
-                "service": "AccountService",
-                "field": "accountService"
-            },
-            {
-                "class": "TransactionRestController",
-                "service": "TransactionService",
-                "field": "transactionService"
-            }
-        ]
-    },
-    "api/v1/withdraw": {
-        "endpoints": [
-            {
-                "method": "withdraw",
-                "path": "/withdraw",
-                "class": "TransactionRestController",
-                "line_number": 56,
-                "http_method": "POST"
-            }
-        ],
-        "service_calls": [
-            {
-                "class": "TransactionRestController",
-                "service": "AccountService",
-                "field": "accountService"
-            },
-            {
-                "class": "TransactionRestController",
-                "service": "TransactionService",
-                "field": "transactionService"
-            }
-        ]
-    },
-    "api/v1/deposit": {
-        "endpoints": [
-            {
-                "method": "deposit",
-                "path": "/deposit",
-                "class": "TransactionRestController",
-                "line_number": 85,
-                "http_method": "POST"
-            }
-        ],
-        "service_calls": [
-            {
-                "class": "TransactionRestController",
-                "service": "AccountService",
-                "field": "accountService"
-            },
-            {
-                "class": "TransactionRestController",
-                "service": "TransactionService",
-                "field": "transactionService"
-            }
-        ]
+        "service_calls": []
     }
 }

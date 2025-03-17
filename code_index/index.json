@@ -1,28 +1,50 @@
 {
-    "./gleanclone\\.mvn\\wrapper\\MavenWrapperDownloader.java": {
-        "package": "default",
+    "./gleanclone\\src\\main\\java\\org\\springframework\\samples\\petclinic\\PetClinicApplication.java": {
+        "package": "org.springframework.samples.petclinic",
         "classes": [
             {
-                "name": "MavenWrapperDownloader",
-                "line_number": 21,
-                "package": "default",
-                "annotations": []
+                "name": "PetClinicApplication",
+                "line_number": 31,
+                "package": "org.springframework.samples.petclinic",
+                "annotations": [
+                    "SpringBootApplication",
+                    "ImportRuntimeHints"
+                ]
             }
         ],
         "methods": [
             {
                 "name": "main",
-                "line_number": 48,
+                "line_number": 33,
                 "annotations": []
-            },
+            }
+        ],
+        "fields": [],
+        "dependencies": [],
+        "call_graph": [],
+        "inheritance": [],
+        "annotations": [],
+        "references": [],
+        "api_flow": {
+            "endpoints": [],
+            "service_calls": [],
+            "repository_calls": []
+        }
+    },
+    "./gleanclone\\src\\main\\java\\org\\springframework\\samples\\petclinic\\PetClinicRuntimeHints.java": {
+        "package": "org.springframework.samples.petclinic",
+        "classes": [
             {
-                "name": "downloadFileFromURL",
-                "line_number": 97,
+                "name": "PetClinicRuntimeHints",
+                "line_number": 25,
+                "package": "org.springframework.samples.petclinic",
                 "annotations": []
-            },
+            }
+        ],
+        "methods": [
             {
-                "name": "getPasswordAuthentication",
-                "line_number": 103,
+                "name": "registerHints",
+                "line_number": 28,
                 "annotations": [
                     "Override"
                 ]
@@ -40,22 +62,32 @@
             "repository_calls": []
         }
     },
-    "./gleanclone\\src\\main\\java\\com\\example\\paul\\Application.java": {
-        "package": "com.example.paul",
+    "./gleanclone\\src\\main\\java\\org\\springframework\\samples\\petclinic\\model\\BaseEntity.java": {
+        "package": "org.springframework.samples.petclinic.model",
         "classes": [
             {
-                "name": "Application",
-                "line_number": 7,
-                "package": "com.example.paul",
+                "name": "BaseEntity",
+                "line_number": 33,
+                "package": "org.springframework.samples.petclinic.model",
                 "annotations": [
-                    "SpringBootApplication"
+                    "MappedSuperclass"
                 ]
             }
         ],
         "methods": [
             {
-                "name": "main",
-                "line_number": 9,
+                "name": "getId",
+                "line_number": 39,
+                "annotations": []
+            },
+            {
+                "name": "setId",
+                "line_number": 43,
+                "annotations": []
+            },
+            {
+                "name": "isNew",
+                "line_number": 47,
                 "annotations": []
             }
         ],
@@ -71,8 +103,51 @@
             "repository_calls": []
         }
     },
-    "./gleanclone\\src\\main\\java\\com\\example\\paul\\constants\\ACTION.java": {
-        "package": "com.example.paul.constants",
+    "./gleanclone\\src\\main\\java\\org\\springframework\\samples\\petclinic\\model\\NamedEntity.java": {
+        "package": "org.springframework.samples.petclinic.model",
+        "classes": [
+            {
+                "name": "NamedEntity",
+                "line_number": 31,
+                "package": "org.springframework.samples.petclinic.model",
+                "annotations": [
+                    "MappedSuperclass"
+                ]
+            }
+        ],
+        "methods": [
+            {
+                "name": "getName",
+                "line_number": 37,
+                "annotations": []
+            },
+            {
+                "name": "setName",
+                "line_number": 41,
+                "annotations": []
+            },
+            {
+                "name": "toString",
+                "line_number": 46,
+                "annotations": [
+                    "Override"
+                ]
+            }
+        ],
+        "fields": [],
+        "dependencies": [],
+        "call_graph": [],
+        "inheritance": [],
+        "annotations": [],
+        "references": [],
+        "api_flow": {
+            "endpoints": [],
+            "service_calls": [],
+            "repository_calls": []
+        }
+    },
+    "./gleanclone\\src\\main\\java\\org\\springframework\\samples\\petclinic\\model\\package-info.java": {
+        "package": "org.springframework.samples.petclinic.model",
         "classes": [],
         "methods": [],
         "fields": [],
@@ -87,17 +162,40 @@
             "repository_calls": []
         }
     },
-    "./gleanclone\\src\\main\\java\\com\\example\\paul\\constants\\constants.java": {
-        "package": "com.example.paul.constants",
+    "./gleanclone\\src\\main\\java\\org\\springframework\\samples\\petclinic\\model\\Person.java": {
+        "package": "org.springframework.samples.petclinic.model",
         "classes": [
             {
-                "name": "constants",
-                "line_number": 5,
-                "package": "com.example.paul.constants",
+                "name": "Person",
+                "line_number": 28,
+                "package": "org.springframework.samples.petclinic.model",
+                "annotations": [
+                    "MappedSuperclass"
+                ]
+            }
+        ],
+        "methods": [
+            {
+                "name": "getFirstName",
+                "line_number": 38,
+                "annotations": []
+            },
+            {
+                "name": "setFirstName",
+                "line_number": 42,
+                "annotations": []
+            },
+            {
+                "name": "getLastName",
+                "line_number": 46,
+                "annotations": []
+            },
+            {
+                "name": "setLastName",
+                "line_number": 50,
                 "annotations": []
             }
         ],
-        "methods": [],
         "fields": [],
         "dependencies": [],
         "call_graph": [],
@@ -110,186 +208,13 @@
             "repository_calls": []
         }
     },
-    "./gleanclone\\src\\main\\java\\com\\example\\paul\\controllers\\AccountRestController.java": {
-        "package": "com.example.paul.controllers",
+    "./gleanclone\\src\\main\\java\\org\\springframework\\samples\\petclinic\\owner\\Owner.java": {
+        "package": "org.springframework.samples.petclinic.owner",
         "classes": [
             {
-                "name": "AccountRestController",
-                "line_number": 25,
-                "package": "com.example.paul.controllers",
-                "annotations": [
-                    "RestController",
-                    "RequestMapping"
-                ]
-            }
-        ],
-        "methods": [
-            {
-                "name": "checkAccountBalance",
-                "line_number": 39,
-                "annotations": [
-                    "PostMapping"
-                ]
-            },
-            {
-                "name": "createAccount",
-                "line_number": 65,
-                "annotations": [
-                    "PutMapping"
-                ]
-            },
-            {
-                "name": "handleValidationExceptions",
-                "line_number": 88,
-                "annotations": [
-                    "ResponseStatus",
-                    "ExceptionHandler"
-                ]
-            }
-        ],
-        "fields": [],
-        "dependencies": [
-            "com.example.paul.constants.constants",
-            "com.example.paul.models.Account",
-            "com.example.paul.services.AccountService",
-            "com.example.paul.utils.AccountInput",
-            "com.example.paul.utils.CreateAccountInput",
-            "com.example.paul.utils.InputValidator"
-        ],
-        "call_graph": [],
-        "inheritance": [],
-        "annotations": [],
-        "references": [],
-        "api_flow": {
-            "endpoints": [
-                {
-                    "method": "checkAccountBalance",
-                    "path": "/accounts",
-                    "class": "AccountRestController",
-                    "line_number": 39,
-                    "http_method": "POST"
-                },
-                {
-                    "method": "createAccount",
-                    "path": "/accounts",
-                    "class": "AccountRestController",
-                    "line_number": 65,
-                    "http_method": "PUT"
-                }
-            ],
-            "service_calls": [
-                {
-                    "class": "AccountRestController",
-                    "service": "AccountService",
-                    "field": "accountService"
-                }
-            ],
-            "repository_calls": []
-        }
-    },
-    "./gleanclone\\src\\main\\java\\com\\example\\paul\\controllers\\TransactionRestController.java": {
-        "package": "com.example.paul.controllers",
-        "classes": [
-            {
-                "name": "TransactionRestController",
-                "line_number": 26,
-                "package": "com.example.paul.controllers",
-                "annotations": [
-                    "RestController",
-                    "RequestMapping"
-                ]
-            }
-        ],
-        "methods": [
-            {
-                "name": "makeTransfer",
-                "line_number": 42,
-                "annotations": [
-                    "PostMapping"
-                ]
-            },
-            {
-                "name": "withdraw",
-                "line_number": 56,
-                "annotations": [
-                    "PostMapping"
-                ]
-            },
-            {
-                "name": "deposit",
-                "line_number": 85,
-                "annotations": [
-                    "PostMapping"
-                ]
-            },
-            {
-                "name": "handleValidationExceptions",
-                "line_number": 108,
-                "annotations": [
-                    "ResponseStatus",
-                    "ExceptionHandler"
-                ]
-            }
-        ],
-        "fields": [],
-        "dependencies": [
-            "com.example.paul.constants.ACTION",
-            "com.example.paul.models.Account",
-            "com.example.paul.services.AccountService",
-            "com.example.paul.services.TransactionService",
-            "com.example.paul.utils",
-            "com.example.paul.constants.constants"
-        ],
-        "call_graph": [],
-        "inheritance": [],
-        "annotations": [],
-        "references": [],
-        "api_flow": {
-            "endpoints": [
-                {
-                    "method": "makeTransfer",
-                    "path": "/transactions",
-                    "class": "TransactionRestController",
-                    "line_number": 42,
-                    "http_method": "POST"
-                },
-                {
-                    "method": "withdraw",
-                    "path": "/withdraw",
-                    "class": "TransactionRestController",
-                    "line_number": 56,
-                    "http_method": "POST"
-                },
-                {
-                    "method": "deposit",
-                    "path": "/deposit",
-                    "class": "TransactionRestController",
-                    "line_number": 85,
-                    "http_method": "POST"
-                }
-            ],
-            "service_calls": [
-                {
-                    "class": "TransactionRestController",
-                    "service": "AccountService",
-                    "field": "accountService"
-                },
-                {
-                    "class": "TransactionRestController",
-                    "service": "TransactionService",
-                    "field": "transactionService"
-                }
-            ],
-            "repository_calls": []
-        }
-    },
-    "./gleanclone\\src\\main\\java\\com\\example\\paul\\models\\Account.java": {
-        "package": "com.example.paul.models",
-        "classes": [
-            {
-                "name": "Account",
-                "line_number": 13,
-                "package": "com.example.paul.models",
+                "name": "Owner",
+                "line_number": 48,
+                "package": "org.springframework.samples.petclinic.owner",
                 "annotations": [
                     "Entity",
                     "Table"
@@ -298,216 +223,71 @@
         ],
         "methods": [
             {
-                "name": "getId",
-                "line_number": 57,
+                "name": "getAddress",
+                "line_number": 68,
                 "annotations": []
             },
             {
-                "name": "setId",
-                "line_number": 60,
-                "annotations": []
-            },
-            {
-                "name": "getSortCode",
-                "line_number": 63,
-                "annotations": []
-            },
-            {
-                "name": "setSortCode",
-                "line_number": 66,
-                "annotations": []
-            },
-            {
-                "name": "getAccountNumber",
-                "line_number": 69,
-                "annotations": []
-            },
-            {
-                "name": "setAccountNumber",
+                "name": "setAddress",
                 "line_number": 72,
                 "annotations": []
             },
             {
-                "name": "getCurrentBalance",
-                "line_number": 75,
+                "name": "getCity",
+                "line_number": 76,
                 "annotations": []
             },
             {
-                "name": "setCurrentBalance",
-                "line_number": 78,
-                "annotations": []
-            },
-            {
-                "name": "getOwnerName",
-                "line_number": 81,
-                "annotations": []
-            },
-            {
-                "name": "setOwnerName",
-                "line_number": 84,
-                "annotations": []
-            },
-            {
-                "name": "getBankName",
-                "line_number": 87,
-                "annotations": []
-            },
-            {
-                "name": "setBankName",
-                "line_number": 90,
-                "annotations": []
-            },
-            {
-                "name": "getTransactions",
-                "line_number": 93,
-                "annotations": []
-            },
-            {
-                "name": "setTransactions",
-                "line_number": 96,
-                "annotations": []
-            },
-            {
-                "name": "toString",
-                "line_number": 101,
-                "annotations": [
-                    "Override"
-                ]
-            }
-        ],
-        "fields": [],
-        "dependencies": [],
-        "call_graph": [],
-        "inheritance": [],
-        "annotations": [],
-        "references": [],
-        "api_flow": {
-            "endpoints": [],
-            "service_calls": [],
-            "repository_calls": []
-        }
-    },
-    "./gleanclone\\src\\main\\java\\com\\example\\paul\\models\\Transaction.java": {
-        "package": "com.example.paul.models",
-        "classes": [
-            {
-                "name": "Transaction",
-                "line_number": 11,
-                "package": "com.example.paul.models",
-                "annotations": [
-                    "Entity",
-                    "Table",
-                    "SequenceGenerator"
-                ]
-            }
-        ],
-        "methods": [
-            {
-                "name": "getId",
-                "line_number": 38,
-                "annotations": []
-            },
-            {
-                "name": "setId",
-                "line_number": 41,
-                "annotations": []
-            },
-            {
-                "name": "getSourceAccountId",
-                "line_number": 44,
-                "annotations": []
-            },
-            {
-                "name": "setSourceAccountId",
-                "line_number": 47,
-                "annotations": []
-            },
-            {
-                "name": "getTargetAccountId",
-                "line_number": 50,
-                "annotations": []
-            },
-            {
-                "name": "setTargetAccountId",
-                "line_number": 53,
-                "annotations": []
-            },
-            {
-                "name": "getTargetOwnerName",
-                "line_number": 56,
-                "annotations": []
-            },
-            {
-                "name": "setTargetOwnerName",
-                "line_number": 59,
-                "annotations": []
-            },
-            {
-                "name": "getAmount",
-                "line_number": 62,
-                "annotations": []
-            },
-            {
-                "name": "setAmount",
-                "line_number": 65,
-                "annotations": []
-            },
-            {
-                "name": "getInitiationDate",
-                "line_number": 68,
-                "annotations": []
-            },
-            {
-                "name": "setInitiationDate",
-                "line_number": 71,
-                "annotations": []
-            },
-            {
-                "name": "getCompletionDate",
-                "line_number": 74,
-                "annotations": []
-            },
-            {
-                "name": "setCompletionDate",
-                "line_number": 77,
-                "annotations": []
-            },
-            {
-                "name": "getReference",
+                "name": "setCity",
                 "line_number": 80,
                 "annotations": []
             },
             {
-                "name": "setReference",
-                "line_number": 83,
+                "name": "getTelephone",
+                "line_number": 84,
                 "annotations": []
             },
             {
-                "name": "getLatitude",
-                "line_number": 86,
+                "name": "setTelephone",
+                "line_number": 88,
                 "annotations": []
             },
             {
-                "name": "setLatitude",
-                "line_number": 89,
-                "annotations": []
-            },
-            {
-                "name": "getLongitude",
+                "name": "getPets",
                 "line_number": 92,
                 "annotations": []
             },
             {
-                "name": "setLongitude",
-                "line_number": 95,
+                "name": "addPet",
+                "line_number": 96,
+                "annotations": []
+            },
+            {
+                "name": "getPet",
+                "line_number": 107,
+                "annotations": []
+            },
+            {
+                "name": "getPet",
+                "line_number": 116,
+                "annotations": []
+            },
+            {
+                "name": "getPet",
+                "line_number": 134,
                 "annotations": []
             },
             {
                 "name": "toString",
-                "line_number": 100,
+                "line_number": 147,
                 "annotations": [
                     "Override"
                 ]
+            },
+            {
+                "name": "addVisit",
+                "line_number": 163,
+                "annotations": []
             }
         ],
         "fields": [],
@@ -522,154 +302,190 @@
             "repository_calls": []
         }
     },
-    "./gleanclone\\src\\main\\java\\com\\example\\paul\\repositories\\AccountRepository.java": {
-        "package": "com.example.paul.repositories",
-        "classes": [],
-        "methods": [
-            {
-                "name": "findBySortCodeAndAccountNumber",
-                "line_number": 10,
-                "annotations": []
-            },
-            {
-                "name": "findByAccountNumber",
-                "line_number": 11,
-                "annotations": []
-            }
-        ],
-        "fields": [],
-        "dependencies": [
-            "com.example.paul.models.Account"
-        ],
-        "call_graph": [],
-        "inheritance": [],
-        "annotations": [],
-        "references": [],
-        "api_flow": {
-            "endpoints": [],
-            "service_calls": [],
-            "repository_calls": []
-        }
-    },
-    "./gleanclone\\src\\main\\java\\com\\example\\paul\\repositories\\TransactionRepository.java": {
-        "package": "com.example.paul.repositories",
-        "classes": [],
-        "methods": [
-            {
-                "name": "findBySourceAccountIdOrderByInitiationDate",
-                "line_number": 11,
-                "annotations": []
-            }
-        ],
-        "fields": [],
-        "dependencies": [
-            "com.example.paul.models.Transaction"
-        ],
-        "call_graph": [],
-        "inheritance": [],
-        "annotations": [],
-        "references": [],
-        "api_flow": {
-            "endpoints": [],
-            "service_calls": [],
-            "repository_calls": []
-        }
-    },
-    "./gleanclone\\src\\main\\java\\com\\example\\paul\\services\\AccountService.java": {
-        "package": "com.example.paul.services",
+    "./gleanclone\\src\\main\\java\\org\\springframework\\samples\\petclinic\\owner\\OwnerController.java": {
+        "package": "org.springframework.samples.petclinic.owner",
         "classes": [
             {
-                "name": "AccountService",
-                "line_number": 12,
-                "package": "com.example.paul.services",
+                "name": "OwnerController",
+                "line_number": 47,
+                "package": "org.springframework.samples.petclinic.owner",
                 "annotations": [
-                    "Service"
+                    "Controller"
                 ]
             }
         ],
         "methods": [
             {
-                "name": "getAccount",
-                "line_number": 23,
-                "annotations": []
-            },
-            {
-                "name": "getAccount",
-                "line_number": 34,
-                "annotations": []
-            },
-            {
-                "name": "createAccount",
-                "line_number": 41,
-                "annotations": []
-            }
-        ],
-        "fields": [],
-        "dependencies": [
-            "com.example.paul.models.Account",
-            "com.example.paul.repositories.AccountRepository",
-            "com.example.paul.repositories.TransactionRepository",
-            "com.example.paul.utils.CodeGenerator"
-        ],
-        "call_graph": [],
-        "inheritance": [],
-        "annotations": [],
-        "references": [],
-        "api_flow": {
-            "endpoints": [],
-            "service_calls": [],
-            "repository_calls": [
-                {
-                    "class": "AccountService",
-                    "repository": "AccountRepository",
-                    "field": "accountRepository"
-                },
-                {
-                    "class": "AccountService",
-                    "repository": "TransactionRepository",
-                    "field": "transactionRepository"
-                }
-            ]
-        }
-    },
-    "./gleanclone\\src\\main\\java\\com\\example\\paul\\services\\TransactionService.java": {
-        "package": "com.example.paul.services",
-        "classes": [
-            {
-                "name": "TransactionService",
-                "line_number": 16,
-                "package": "com.example.paul.services",
-                "annotations": [
-                    "Service"
-                ]
-            }
-        ],
-        "methods": [
-            {
-                "name": "makeTransfer",
-                "line_number": 23,
-                "annotations": []
-            },
-            {
-                "name": "updateAccountBalance",
+                "name": "setAllowedFields",
                 "line_number": 58,
+                "annotations": [
+                    "InitBinder"
+                ]
+            },
+            {
+                "name": "findOwner",
+                "line_number": 63,
+                "annotations": [
+                    "ModelAttribute"
+                ]
+            },
+            {
+                "name": "initCreationForm",
+                "line_number": 71,
+                "annotations": [
+                    "GetMapping"
+                ]
+            },
+            {
+                "name": "processCreationForm",
+                "line_number": 76,
+                "annotations": [
+                    "PostMapping"
+                ]
+            },
+            {
+                "name": "initFindForm",
+                "line_number": 88,
+                "annotations": [
+                    "GetMapping"
+                ]
+            },
+            {
+                "name": "processFindForm",
+                "line_number": 93,
+                "annotations": [
+                    "GetMapping"
+                ]
+            },
+            {
+                "name": "addPaginationModel",
+                "line_number": 118,
                 "annotations": []
             },
             {
-                "name": "isAmountAvailable",
-                "line_number": 68,
+                "name": "findPaginatedForOwnersLastName",
+                "line_number": 127,
+                "annotations": []
+            },
+            {
+                "name": "initUpdateOwnerForm",
+                "line_number": 134,
+                "annotations": [
+                    "GetMapping"
+                ]
+            },
+            {
+                "name": "processUpdateOwnerForm",
+                "line_number": 139,
+                "annotations": [
+                    "PostMapping"
+                ]
+            },
+            {
+                "name": "showOwner",
+                "line_number": 164,
+                "annotations": [
+                    "GetMapping"
+                ]
+            }
+        ],
+        "fields": [],
+        "dependencies": [],
+        "call_graph": [],
+        "inheritance": [],
+        "annotations": [],
+        "references": [],
+        "api_flow": {
+            "endpoints": [
+                {
+                    "method": "initCreationForm",
+                    "path": "",
+                    "class": "OwnerController",
+                    "line_number": 71,
+                    "http_method": "GET"
+                },
+                {
+                    "method": "processCreationForm",
+                    "path": "",
+                    "class": "OwnerController",
+                    "line_number": 76,
+                    "http_method": "POST"
+                },
+                {
+                    "method": "initFindForm",
+                    "path": "",
+                    "class": "OwnerController",
+                    "line_number": 88,
+                    "http_method": "GET"
+                },
+                {
+                    "method": "processFindForm",
+                    "path": "",
+                    "class": "OwnerController",
+                    "line_number": 93,
+                    "http_method": "GET"
+                },
+                {
+                    "method": "initUpdateOwnerForm",
+                    "path": "",
+                    "class": "OwnerController",
+                    "line_number": 134,
+                    "http_method": "GET"
+                },
+                {
+                    "method": "processUpdateOwnerForm",
+                    "path": "",
+                    "class": "OwnerController",
+                    "line_number": 139,
+                    "http_method": "POST"
+                },
+                {
+                    "method": "showOwner",
+                    "path": "",
+                    "class": "OwnerController",
+                    "line_number": 164,
+                    "http_method": "GET"
+                }
+            ],
+            "service_calls": [],
+            "repository_calls": [
+                {
+                    "class": "OwnerController",
+                    "repository": "OwnerRepository",
+                    "field": "owners"
+                }
+            ]
+        }
+    },
+    "./gleanclone\\src\\main\\java\\org\\springframework\\samples\\petclinic\\owner\\OwnerRepository.java": {
+        "package": "org.springframework.samples.petclinic.owner",
+        "classes": [],
+        "methods": [
+            {
+                "name": "findPetTypes",
+                "line_number": 46,
+                "annotations": [
+                    "Query"
+                ]
+            },
+            {
+                "name": "findByLastNameStartingWith",
+                "line_number": 55,
+                "annotations": []
+            },
+            {
+                "name": "findById",
+                "line_number": 70,
+                "annotations": []
+            },
+            {
+                "name": "findAll",
+                "line_number": 75,
                 "annotations": []
             }
         ],
         "fields": [],
-        "dependencies": [
-            "com.example.paul.constants.ACTION",
-            "com.example.paul.models.Account",
-            "com.example.paul.models.Transaction",
-            "com.example.paul.repositories.AccountRepository",
-            "com.example.paul.repositories.TransactionRepository",
-            "com.example.paul.utils.TransactionInput"
-        ],
+        "dependencies": [],
         "call_graph": [],
         "inheritance": [],
         "annotations": [],
@@ -677,171 +493,245 @@
         "api_flow": {
             "endpoints": [],
             "service_calls": [],
-            "repository_calls": [
-                {
-                    "class": "TransactionService",
-                    "repository": "AccountRepository",
-                    "field": "accountRepository"
-                },
-                {
-                    "class": "TransactionService",
-                    "repository": "TransactionRepository",
-                    "field": "transactionRepository"
-                }
-            ]
+            "repository_calls": []
         }
     },
-    "./gleanclone\\src\\main\\java\\com\\example\\paul\\utils\\AccountInput.java": {
-        "package": "com.example.paul.utils",
+    "./gleanclone\\src\\main\\java\\org\\springframework\\samples\\petclinic\\owner\\Pet.java": {
+        "package": "org.springframework.samples.petclinic.owner",
         "classes": [
             {
-                "name": "AccountInput",
-                "line_number": 6,
-                "package": "com.example.paul.utils",
-                "annotations": []
+                "name": "Pet",
+                "line_number": 46,
+                "package": "org.springframework.samples.petclinic.owner",
+                "annotations": [
+                    "Entity",
+                    "Table"
+                ]
             }
         ],
         "methods": [
             {
-                "name": "getSortCode",
-                "line_number": 16,
+                "name": "setBirthDate",
+                "line_number": 61,
                 "annotations": []
             },
             {
-                "name": "setSortCode",
-                "line_number": 19,
+                "name": "getBirthDate",
+                "line_number": 65,
                 "annotations": []
             },
             {
-                "name": "getAccountNumber",
-                "line_number": 22,
+                "name": "getType",
+                "line_number": 69,
                 "annotations": []
             },
             {
-                "name": "setAccountNumber",
-                "line_number": 25,
+                "name": "setType",
+                "line_number": 73,
                 "annotations": []
             },
             {
-                "name": "toString",
-                "line_number": 30,
+                "name": "getVisits",
+                "line_number": 77,
+                "annotations": []
+            },
+            {
+                "name": "addVisit",
+                "line_number": 81,
+                "annotations": []
+            }
+        ],
+        "fields": [],
+        "dependencies": [],
+        "call_graph": [],
+        "inheritance": [],
+        "annotations": [],
+        "references": [],
+        "api_flow": {
+            "endpoints": [],
+            "service_calls": [],
+            "repository_calls": []
+        }
+    },
+    "./gleanclone\\src\\main\\java\\org\\springframework\\samples\\petclinic\\owner\\PetController.java": {
+        "package": "org.springframework.samples.petclinic.owner",
+        "classes": [
+            {
+                "name": "PetController",
+                "line_number": 45,
+                "package": "org.springframework.samples.petclinic.owner",
                 "annotations": [
-                    "Override"
+                    "Controller",
+                    "RequestMapping"
+                ]
+            }
+        ],
+        "methods": [
+            {
+                "name": "populatePetTypes",
+                "line_number": 56,
+                "annotations": [
+                    "ModelAttribute"
                 ]
             },
             {
-                "name": "equals",
-                "line_number": 38,
+                "name": "findOwner",
+                "line_number": 61,
                 "annotations": [
-                    "Override"
+                    "ModelAttribute"
                 ]
             },
             {
-                "name": "hashCode",
+                "name": "findPet",
+                "line_number": 69,
+                "annotations": [
+                    "ModelAttribute"
+                ]
+            },
+            {
+                "name": "initOwnerBinder",
+                "line_number": 83,
+                "annotations": [
+                    "InitBinder"
+                ]
+            },
+            {
+                "name": "initPetBinder",
+                "line_number": 88,
+                "annotations": [
+                    "InitBinder"
+                ]
+            },
+            {
+                "name": "initCreationForm",
+                "line_number": 93,
+                "annotations": [
+                    "GetMapping"
+                ]
+            },
+            {
+                "name": "processCreationForm",
+                "line_number": 100,
+                "annotations": [
+                    "PostMapping"
+                ]
+            },
+            {
+                "name": "initUpdateForm",
+                "line_number": 122,
+                "annotations": [
+                    "GetMapping"
+                ]
+            },
+            {
+                "name": "processUpdateForm",
+                "line_number": 127,
+                "annotations": [
+                    "PostMapping"
+                ]
+            },
+            {
+                "name": "updatePetDetails",
+                "line_number": 159,
+                "annotations": []
+            }
+        ],
+        "fields": [],
+        "dependencies": [],
+        "call_graph": [],
+        "inheritance": [],
+        "annotations": [],
+        "references": [],
+        "api_flow": {
+            "endpoints": [
+                {
+                    "method": "initCreationForm",
+                    "path": "",
+                    "class": "PetController",
+                    "line_number": 93,
+                    "http_method": "GET"
+                },
+                {
+                    "method": "processCreationForm",
+                    "path": "",
+                    "class": "PetController",
+                    "line_number": 100,
+                    "http_method": "POST"
+                },
+                {
+                    "method": "initUpdateForm",
+                    "path": "",
+                    "class": "PetController",
+                    "line_number": 122,
+                    "http_method": "GET"
+                },
+                {
+                    "method": "processUpdateForm",
+                    "path": "",
+                    "class": "PetController",
+                    "line_number": 127,
+                    "http_method": "POST"
+                }
+            ],
+            "service_calls": [],
+            "repository_calls": [
+                {
+                    "class": "PetController",
+                    "repository": "OwnerRepository",
+                    "field": "owners"
+                }
+            ]
+        }
+    },
+    "./gleanclone\\src\\main\\java\\org\\springframework\\samples\\petclinic\\owner\\PetType.java": {
+        "package": "org.springframework.samples.petclinic.owner",
+        "classes": [
+            {
+                "name": "PetType",
+                "line_number": 28,
+                "package": "org.springframework.samples.petclinic.owner",
+                "annotations": [
+                    "Entity",
+                    "Table"
+                ]
+            }
+        ],
+        "methods": [],
+        "fields": [],
+        "dependencies": [],
+        "call_graph": [],
+        "inheritance": [],
+        "annotations": [],
+        "references": [],
+        "api_flow": {
+            "endpoints": [],
+            "service_calls": [],
+            "repository_calls": []
+        }
+    },
+    "./gleanclone\\src\\main\\java\\org\\springframework\\samples\\petclinic\\owner\\PetTypeFormatter.java": {
+        "package": "org.springframework.samples.petclinic.owner",
+        "classes": [
+            {
+                "name": "PetTypeFormatter",
+                "line_number": 37,
+                "package": "org.springframework.samples.petclinic.owner",
+                "annotations": [
+                    "Component"
+                ]
+            }
+        ],
+        "methods": [
+            {
+                "name": "print",
                 "line_number": 47,
                 "annotations": [
                     "Override"
                 ]
-            }
-        ],
-        "fields": [],
-        "dependencies": [],
-        "call_graph": [],
-        "inheritance": [],
-        "annotations": [],
-        "references": [],
-        "api_flow": {
-            "endpoints": [],
-            "service_calls": [],
-            "repository_calls": []
-        }
-    },
-    "./gleanclone\\src\\main\\java\\com\\example\\paul\\utils\\CodeGenerator.java": {
-        "package": "com.example.paul.utils",
-        "classes": [
-            {
-                "name": "CodeGenerator",
-                "line_number": 8,
-                "package": "com.example.paul.utils",
-                "annotations": []
-            }
-        ],
-        "methods": [
-            {
-                "name": "generateSortCode",
-                "line_number": 14,
-                "annotations": []
             },
             {
-                "name": "generateAccountNumber",
-                "line_number": 18,
-                "annotations": []
-            }
-        ],
-        "fields": [],
-        "dependencies": [
-            "com.mifmif.common.regex.Generex",
-            "com.example.paul.constants.constants.ACCOUNT_NUMBER_PATTERN_STRING",
-            "com.example.paul.constants.constants.SORT_CODE_PATTERN_STRING"
-        ],
-        "call_graph": [],
-        "inheritance": [],
-        "annotations": [],
-        "references": [],
-        "api_flow": {
-            "endpoints": [],
-            "service_calls": [],
-            "repository_calls": []
-        }
-    },
-    "./gleanclone\\src\\main\\java\\com\\example\\paul\\utils\\CreateAccountInput.java": {
-        "package": "com.example.paul.utils",
-        "classes": [
-            {
-                "name": "CreateAccountInput",
-                "line_number": 6,
-                "package": "com.example.paul.utils",
-                "annotations": []
-            }
-        ],
-        "methods": [
-            {
-                "name": "getBankName",
-                "line_number": 17,
-                "annotations": []
-            },
-            {
-                "name": "setBankName",
-                "line_number": 21,
-                "annotations": []
-            },
-            {
-                "name": "getOwnerName",
-                "line_number": 25,
-                "annotations": []
-            },
-            {
-                "name": "setOwnerName",
-                "line_number": 29,
-                "annotations": []
-            },
-            {
-                "name": "toString",
-                "line_number": 34,
-                "annotations": [
-                    "Override"
-                ]
-            },
-            {
-                "name": "equals",
-                "line_number": 42,
-                "annotations": [
-                    "Override"
-                ]
-            },
-            {
-                "name": "hashCode",
-                "line_number": 51,
+                "name": "parse",
+                "line_number": 52,
                 "annotations": [
                     "Override"
                 ]
@@ -856,251 +746,461 @@
         "api_flow": {
             "endpoints": [],
             "service_calls": [],
-            "repository_calls": []
+            "repository_calls": [
+                {
+                    "class": "PetTypeFormatter",
+                    "repository": "OwnerRepository",
+                    "field": "owners"
+                }
+            ]
         }
     },
-    "./gleanclone\\src\\main\\java\\com\\example\\paul\\utils\\DepositInput.java": {
-        "package": "com.example.paul.utils",
+    "./gleanclone\\src\\main\\java\\org\\springframework\\samples\\petclinic\\owner\\PetValidator.java": {
+        "package": "org.springframework.samples.petclinic.owner",
         "classes": [
             {
-                "name": "DepositInput",
-                "line_number": 7,
-                "package": "com.example.paul.utils",
+                "name": "PetValidator",
+                "line_number": 32,
+                "package": "org.springframework.samples.petclinic.owner",
                 "annotations": []
             }
         ],
         "methods": [
             {
-                "name": "getTargetAccountNo",
-                "line_number": 19,
-                "annotations": []
-            },
-            {
-                "name": "setTargetAccountNo",
-                "line_number": 23,
-                "annotations": []
-            },
-            {
-                "name": "getAmount",
-                "line_number": 27,
-                "annotations": []
-            },
-            {
-                "name": "setAmount",
-                "line_number": 31,
-                "annotations": []
-            },
-            {
-                "name": "toString",
-                "line_number": 36,
-                "annotations": [
-                    "Override"
-                ]
-            },
-            {
-                "name": "equals",
-                "line_number": 44,
-                "annotations": [
-                    "Override"
-                ]
-            },
-            {
-                "name": "hashCode",
-                "line_number": 53,
-                "annotations": [
-                    "Override"
-                ]
-            }
-        ],
-        "fields": [],
-        "dependencies": [],
-        "call_graph": [],
-        "inheritance": [],
-        "annotations": [],
-        "references": [],
-        "api_flow": {
-            "endpoints": [],
-            "service_calls": [],
-            "repository_calls": []
-        }
-    },
-    "./gleanclone\\src\\main\\java\\com\\example\\paul\\utils\\InputValidator.java": {
-        "package": "com.example.paul.utils",
-        "classes": [
-            {
-                "name": "InputValidator",
-                "line_number": 5,
-                "package": "com.example.paul.utils",
-                "annotations": []
-            }
-        ],
-        "methods": [
-            {
-                "name": "isSearchCriteriaValid",
-                "line_number": 7,
-                "annotations": []
-            },
-            {
-                "name": "isAccountNoValid",
-                "line_number": 12,
-                "annotations": []
-            },
-            {
-                "name": "isCreateAccountCriteriaValid",
-                "line_number": 16,
-                "annotations": []
-            },
-            {
-                "name": "isSearchTransactionValid",
-                "line_number": 20,
-                "annotations": []
-            }
-        ],
-        "fields": [],
-        "dependencies": [
-            "com.example.paul.constants.constants"
-        ],
-        "call_graph": [],
-        "inheritance": [],
-        "annotations": [],
-        "references": [],
-        "api_flow": {
-            "endpoints": [],
-            "service_calls": [],
-            "repository_calls": []
-        }
-    },
-    "./gleanclone\\src\\main\\java\\com\\example\\paul\\utils\\TransactionInput.java": {
-        "package": "com.example.paul.utils",
-        "classes": [
-            {
-                "name": "TransactionInput",
-                "line_number": 7,
-                "package": "com.example.paul.utils",
-                "annotations": []
-            }
-        ],
-        "methods": [
-            {
-                "name": "getSourceAccount",
-                "line_number": 30,
-                "annotations": []
-            },
-            {
-                "name": "setSourceAccount",
-                "line_number": 33,
-                "annotations": []
-            },
-            {
-                "name": "getTargetAccount",
-                "line_number": 36,
-                "annotations": []
-            },
-            {
-                "name": "setTargetAccount",
-                "line_number": 39,
-                "annotations": []
-            },
-            {
-                "name": "getAmount",
-                "line_number": 42,
-                "annotations": []
-            },
-            {
-                "name": "setAmount",
-                "line_number": 45,
-                "annotations": []
-            },
-            {
-                "name": "getReference",
-                "line_number": 48,
-                "annotations": []
-            },
-            {
-                "name": "setReference",
-                "line_number": 51,
-                "annotations": []
-            },
-            {
-                "name": "getLatitude",
-                "line_number": 54,
-                "annotations": []
-            },
-            {
-                "name": "setLatitude",
-                "line_number": 57,
-                "annotations": []
-            },
-            {
-                "name": "getLongitude",
-                "line_number": 60,
-                "annotations": []
-            },
-            {
-                "name": "setLongitude",
-                "line_number": 63,
-                "annotations": []
-            },
-            {
-                "name": "toString",
-                "line_number": 68,
-                "annotations": [
-                    "Override"
-                ]
-            }
-        ],
-        "fields": [],
-        "dependencies": [],
-        "call_graph": [],
-        "inheritance": [],
-        "annotations": [],
-        "references": [],
-        "api_flow": {
-            "endpoints": [],
-            "service_calls": [],
-            "repository_calls": []
-        }
-    },
-    "./gleanclone\\src\\main\\java\\com\\example\\paul\\utils\\WithdrawInput.java": {
-        "package": "com.example.paul.utils",
-        "classes": [
-            {
-                "name": "WithdrawInput",
-                "line_number": 6,
-                "package": "com.example.paul.utils",
-                "annotations": []
-            }
-        ],
-        "methods": [
-            {
-                "name": "getAmount",
-                "line_number": 19,
-                "annotations": []
-            },
-            {
-                "name": "setAmount",
-                "line_number": 23,
-                "annotations": []
-            },
-            {
-                "name": "toString",
-                "line_number": 28,
-                "annotations": [
-                    "Override"
-                ]
-            },
-            {
-                "name": "equals",
+                "name": "validate",
                 "line_number": 37,
                 "annotations": [
                     "Override"
                 ]
             },
             {
-                "name": "hashCode",
-                "line_number": 47,
+                "name": "supports",
+                "line_number": 60,
                 "annotations": [
                     "Override"
+                ]
+            }
+        ],
+        "fields": [],
+        "dependencies": [],
+        "call_graph": [],
+        "inheritance": [],
+        "annotations": [],
+        "references": [],
+        "api_flow": {
+            "endpoints": [],
+            "service_calls": [],
+            "repository_calls": []
+        }
+    },
+    "./gleanclone\\src\\main\\java\\org\\springframework\\samples\\petclinic\\owner\\Visit.java": {
+        "package": "org.springframework.samples.petclinic.owner",
+        "classes": [
+            {
+                "name": "Visit",
+                "line_number": 36,
+                "package": "org.springframework.samples.petclinic.owner",
+                "annotations": [
+                    "Entity",
+                    "Table"
+                ]
+            }
+        ],
+        "methods": [
+            {
+                "name": "getDate",
+                "line_number": 52,
+                "annotations": []
+            },
+            {
+                "name": "setDate",
+                "line_number": 56,
+                "annotations": []
+            },
+            {
+                "name": "getDescription",
+                "line_number": 60,
+                "annotations": []
+            },
+            {
+                "name": "setDescription",
+                "line_number": 64,
+                "annotations": []
+            }
+        ],
+        "fields": [],
+        "dependencies": [],
+        "call_graph": [],
+        "inheritance": [],
+        "annotations": [],
+        "references": [],
+        "api_flow": {
+            "endpoints": [],
+            "service_calls": [],
+            "repository_calls": []
+        }
+    },
+    "./gleanclone\\src\\main\\java\\org\\springframework\\samples\\petclinic\\owner\\VisitController.java": {
+        "package": "org.springframework.samples.petclinic.owner",
+        "classes": [
+            {
+                "name": "VisitController",
+                "line_number": 42,
+                "package": "org.springframework.samples.petclinic.owner",
+                "annotations": [
+                    "Controller"
+                ]
+            }
+        ],
+        "methods": [
+            {
+                "name": "setAllowedFields",
+                "line_number": 51,
+                "annotations": [
+                    "InitBinder"
+                ]
+            },
+            {
+                "name": "loadPetWithVisit",
+                "line_number": 63,
+                "annotations": [
+                    "ModelAttribute"
+                ]
+            },
+            {
+                "name": "initNewVisitForm",
+                "line_number": 81,
+                "annotations": [
+                    "GetMapping"
+                ]
+            },
+            {
+                "name": "processNewVisitForm",
+                "line_number": 88,
+                "annotations": [
+                    "PostMapping"
+                ]
+            }
+        ],
+        "fields": [],
+        "dependencies": [],
+        "call_graph": [],
+        "inheritance": [],
+        "annotations": [],
+        "references": [],
+        "api_flow": {
+            "endpoints": [
+                {
+                    "method": "initNewVisitForm",
+                    "path": "",
+                    "class": "VisitController",
+                    "line_number": 81,
+                    "http_method": "GET"
+                },
+                {
+                    "method": "processNewVisitForm",
+                    "path": "",
+                    "class": "VisitController",
+                    "line_number": 88,
+                    "http_method": "POST"
+                }
+            ],
+            "service_calls": [],
+            "repository_calls": [
+                {
+                    "class": "VisitController",
+                    "repository": "OwnerRepository",
+                    "field": "owners"
+                }
+            ]
+        }
+    },
+    "./gleanclone\\src\\main\\java\\org\\springframework\\samples\\petclinic\\system\\CacheConfiguration.java": {
+        "package": "org.springframework.samples.petclinic.system",
+        "classes": [
+            {
+                "name": "CacheConfiguration",
+                "line_number": 33,
+                "package": "org.springframework.samples.petclinic.system",
+                "annotations": [
+                    "Configuration",
+                    "EnableCaching"
+                ]
+            }
+        ],
+        "methods": [
+            {
+                "name": "petclinicCacheConfigurationCustomizer",
+                "line_number": 36,
+                "annotations": [
+                    "Bean"
+                ]
+            },
+            {
+                "name": "cacheConfiguration",
+                "line_number": 49,
+                "annotations": []
+            }
+        ],
+        "fields": [],
+        "dependencies": [],
+        "call_graph": [],
+        "inheritance": [],
+        "annotations": [],
+        "references": [],
+        "api_flow": {
+            "endpoints": [],
+            "service_calls": [],
+            "repository_calls": []
+        }
+    },
+    "./gleanclone\\src\\main\\java\\org\\springframework\\samples\\petclinic\\system\\CrashController.java": {
+        "package": "org.springframework.samples.petclinic.system",
+        "classes": [
+            {
+                "name": "CrashController",
+                "line_number": 29,
+                "package": "org.springframework.samples.petclinic.system",
+                "annotations": [
+                    "Controller"
+                ]
+            }
+        ],
+        "methods": [
+            {
+                "name": "triggerException",
+                "line_number": 32,
+                "annotations": [
+                    "GetMapping"
+                ]
+            }
+        ],
+        "fields": [],
+        "dependencies": [],
+        "call_graph": [],
+        "inheritance": [],
+        "annotations": [],
+        "references": [],
+        "api_flow": {
+            "endpoints": [
+                {
+                    "method": "triggerException",
+                    "path": "",
+                    "class": "CrashController",
+                    "line_number": 32,
+                    "http_method": "GET"
+                }
+            ],
+            "service_calls": [],
+            "repository_calls": []
+        }
+    },
+    "./gleanclone\\src\\main\\java\\org\\springframework\\samples\\petclinic\\system\\WelcomeController.java": {
+        "package": "org.springframework.samples.petclinic.system",
+        "classes": [
+            {
+                "name": "WelcomeController",
+                "line_number": 23,
+                "package": "org.springframework.samples.petclinic.system",
+                "annotations": [
+                    "Controller"
+                ]
+            }
+        ],
+        "methods": [
+            {
+                "name": "welcome",
+                "line_number": 26,
+                "annotations": [
+                    "GetMapping"
+                ]
+            }
+        ],
+        "fields": [],
+        "dependencies": [],
+        "call_graph": [],
+        "inheritance": [],
+        "annotations": [],
+        "references": [],
+        "api_flow": {
+            "endpoints": [
+                {
+                    "method": "welcome",
+                    "path": "",
+                    "class": "WelcomeController",
+                    "line_number": 26,
+                    "http_method": "GET"
+                }
+            ],
+            "service_calls": [],
+            "repository_calls": []
+        }
+    },
+    "./gleanclone\\src\\main\\java\\org\\springframework\\samples\\petclinic\\vet\\Specialty.java": {
+        "package": "org.springframework.samples.petclinic.vet",
+        "classes": [],
+        "methods": [],
+        "fields": [],
+        "dependencies": [],
+        "call_graph": [],
+        "inheritance": [],
+        "annotations": [],
+        "references": [],
+        "api_flow": {
+            "endpoints": [],
+            "service_calls": [],
+            "repository_calls": []
+        }
+    },
+    "./gleanclone\\src\\main\\java\\org\\springframework\\samples\\petclinic\\vet\\Vet.java": {
+        "package": "org.springframework.samples.petclinic.vet",
+        "classes": [
+            {
+                "name": "Vet",
+                "line_number": 45,
+                "package": "org.springframework.samples.petclinic.vet",
+                "annotations": [
+                    "Entity",
+                    "Table"
+                ]
+            }
+        ],
+        "methods": [],
+        "fields": [],
+        "dependencies": [],
+        "call_graph": [],
+        "inheritance": [],
+        "annotations": [],
+        "references": [],
+        "api_flow": {
+            "endpoints": [],
+            "service_calls": [],
+            "repository_calls": []
+        }
+    },
+    "./gleanclone\\src\\main\\java\\org\\springframework\\samples\\petclinic\\vet\\VetController.java": {
+        "package": "org.springframework.samples.petclinic.vet",
+        "classes": [
+            {
+                "name": "VetController",
+                "line_number": 36,
+                "package": "org.springframework.samples.petclinic.vet",
+                "annotations": [
+                    "Controller"
+                ]
+            }
+        ],
+        "methods": [
+            {
+                "name": "showVetList",
+                "line_number": 45,
+                "annotations": [
+                    "GetMapping"
+                ]
+            },
+            {
+                "name": "addPaginationModel",
+                "line_number": 54,
+                "annotations": []
+            },
+            {
+                "name": "findPaginated",
+                "line_number": 63,
+                "annotations": []
+            },
+            {
+                "name": "showResourcesVetList",
+                "line_number": 70,
+                "annotations": [
+                    "GetMapping",
+                    "ResponseBody"
+                ]
+            }
+        ],
+        "fields": [],
+        "dependencies": [],
+        "call_graph": [],
+        "inheritance": [],
+        "annotations": [],
+        "references": [],
+        "api_flow": {
+            "endpoints": [
+                {
+                    "method": "showVetList",
+                    "path": "",
+                    "class": "VetController",
+                    "line_number": 45,
+                    "http_method": "GET"
+                },
+                {
+                    "method": "showResourcesVetList",
+                    "path": "",
+                    "class": "VetController",
+                    "line_number": 70,
+                    "http_method": "GET"
+                }
+            ],
+            "service_calls": [],
+            "repository_calls": [
+                {
+                    "class": "VetController",
+                    "repository": "VetRepository",
+                    "field": "vetRepository"
+                }
+            ]
+        }
+    },
+    "./gleanclone\\src\\main\\java\\org\\springframework\\samples\\petclinic\\vet\\VetRepository.java": {
+        "package": "org.springframework.samples.petclinic.vet",
+        "classes": [],
+        "methods": [
+            {
+                "name": "findAll",
+                "line_number": 46,
+                "annotations": [
+                    "Transactional",
+                    "Cacheable"
+                ]
+            },
+            {
+                "name": "findAll",
+                "line_number": 56,
+                "annotations": [
+                    "Transactional",
+                    "Cacheable"
+                ]
+            }
+        ],
+        "fields": [],
+        "dependencies": [],
+        "call_graph": [],
+        "inheritance": [],
+        "annotations": [],
+        "references": [],
+        "api_flow": {
+            "endpoints": [],
+            "service_calls": [],
+            "repository_calls": []
+        }
+    },
+    "./gleanclone\\src\\main\\java\\org\\springframework\\samples\\petclinic\\vet\\Vets.java": {
+        "package": "org.springframework.samples.petclinic.vet",
+        "classes": [
+            {
+                "name": "Vets",
+                "line_number": 31,
+                "package": "org.springframework.samples.petclinic.vet",
+                "annotations": [
+                    "XmlRootElement"
+                ]
+            }
+        ],
+        "methods": [
+            {
+                "name": "getVetList",
+                "line_number": 36,
+                "annotations": [
+                    "XmlElement"
                 ]
             }
         ],
