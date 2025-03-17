@@ -491,6 +491,100 @@ Review the original response and verify:
         """Analyze the impact of a code change on the application."""
         return self.process_query(change_description, template_name="code_change_impact_template")
 
+    def analyze_comprehensive(self, query, feature_description, change_description):
+        """Perform a comprehensive analysis including general query, feature implementation, and code change impact."""
+        logger.info(f"Processing comprehensive analysis")
+        logger.info(f"Query: {query}")
+        logger.info(f"Feature: {feature_description}")
+        logger.info(f"Change: {change_description}")
+        
+        # Step 1: Retrieve relevant context
+        # Combine all three queries to get the most relevant components
+        combined_query = f"{query} {feature_description} {change_description}"
+        relevant_components = self.context_manager.get_relevant_components(combined_query)
+        
+        # Step 2: Build context payload
+        context = {
+            "app_overview": self.context_manager.app_overview,
+            "components": relevant_components,
+            "api_flows": self.context_manager.get_related_api_flows(relevant_components),
+            "matrix": self.context_manager.get_related_matrix_entries(relevant_components)
+        }
+        
+        # Step 3: Build and execute prompt
+        template_name = "comprehensive_analysis_template"
+        
+        # Create a custom prompt with all three queries
+        template = self.context_manager.get_prompt_template(template_name)
+        if not template:
+            logger.warning(f"Template '{template_name}' not found")
+            return "Error: Comprehensive analysis template not found."
+        
+        # Format the components section
+        components_text = ""
+        for component, data in context["components"].items():
+            components_text += f"### {component}\n{data['summary']}\n\n"
+            
+        # Format the API flows section
+        api_flows_text = json.dumps(context["api_flows"], indent=2)
+        
+        # Format the matrix section
+        matrix_text = ""
+        for component, relationships in context["matrix"].items():
+            depends_on = ", ".join(relationships["depends_on"]) if relationships["depends_on"] else "None"
+            used_by = ", ".join(relationships["used_by"]) if relationships["used_by"] else "None"
+            matrix_text += f"- {component}:\n  - Depends on: {depends_on}\n  - Used by: {used_by}\n\n"
+        
+        # Replace placeholders in the template
+        prompt = template.replace("{insert relevant high-level application summary}", context["app_overview"]["summary"])
+        prompt = prompt.replace("{insert summaries of the 3-5 most relevant components}", components_text)
+        prompt = prompt.replace("{insert API flow data for endpoints relevant to the analysis}", api_flows_text)
+        prompt = prompt.replace("{insert relevant portion of component relationship matrix}", matrix_text)
+        prompt = prompt.replace("{insert specific question}", query)
+        prompt = prompt.replace("{insert feature description}", feature_description)
+        prompt = prompt.replace("{insert description of proposed code change}", change_description)
+        
+        # Execute the prompt
+        logger.info(f"Sending comprehensive analysis prompt to LLM")
+        original_response = self.llm_client.analyze_application(prompt, max_tokens=3000)
+        
+        # No verification for comprehensive analysis as it would be too complex
+        return original_response
+
+    def analyze_comprehensive_single_question(self, question, verify=True):
+        """Perform a comprehensive analysis using a single question for all three analysis types."""
+        logger.info(f"Processing comprehensive analysis with single question: {question}")
+        
+        # Use the same question for all three analysis types
+        original_response = self.analyze_comprehensive(question, question, question)
+        
+        # Step 4: Self-correction if requested
+        if verify:
+            logger.info("Performing self-verification of response")
+            
+            # Step 1: Retrieve relevant context
+            relevant_components = self.context_manager.get_relevant_components(question)
+            
+            # Step 2: Build context payload
+            context = {
+                "app_overview": self.context_manager.app_overview,
+                "components": relevant_components,
+                "api_flows": self.context_manager.get_related_api_flows(relevant_components),
+                "matrix": self.context_manager.get_related_matrix_entries(relevant_components)
+            }
+            
+            verified_response = self._verify_response(original_response, context)
+            
+            # Return both responses in a formatted way
+            combined_response = f"""## Original Response:
+{original_response}
+
+## Verification:
+{verified_response}"""
+            return combined_response
+        
+        return original_response
+
 
 # Example usage
 if __name__ == "__main__":
@@ -520,4 +614,10 @@ if __name__ == "__main__":
     change = "Change the Transaction entity to include a 'category' field for transaction categorization"
     print(f"\n\n{'='*80}\nCODE CHANGE IMPACT: {change}\n{'='*80}\n")
     response = processor.analyze_code_change_impact(change)
-    print(f"\nIMPACT ANALYSIS:\n{response}") 
+    print(f"\nIMPACT ANALYSIS:\n{response}")
+    
+    # Example comprehensive analysis
+    comprehensive_query = "What is the overall architecture of this Spring Boot application? How does the transaction flow work in this application? What would be the impact of adding a new 'address' field to the User entity?"
+    print(f"\n\n{'='*80}\nCOMPREHENSIVE ANALYSIS: {comprehensive_query}\n{'='*80}\n")
+    response = processor.analyze_comprehensive(comprehensive_query, "Add a feature to allow users to set up recurring transfers between accounts", "Change the Transaction entity to include a 'category' field for transaction categorization")
+    print(f"\nANALYSIS:\n{response}") 

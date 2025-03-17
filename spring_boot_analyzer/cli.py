@@ -38,6 +38,21 @@ def main():
     impact_parser.add_argument("--response-format", choices=["both", "original", "verification"], default="both", 
                               help="Which responses to show: both, original only, or verification only")
     
+    # Comprehensive analysis command
+    comprehensive_parser = subparsers.add_parser("comprehensive", help="Perform a comprehensive analysis including query, feature, and impact")
+    comprehensive_parser.add_argument("query_text", help="The general query to process")
+    comprehensive_parser.add_argument("feature_description", help="Description of the feature to implement")
+    comprehensive_parser.add_argument("change_description", help="Description of the code change")
+    comprehensive_parser.add_argument("--summary-dir", default="summary", help="Path to the summary directory")
+    
+    # Single question comprehensive analysis command
+    single_parser = subparsers.add_parser("analyze", help="Perform a comprehensive analysis using a single question for all three analysis types")
+    single_parser.add_argument("question", help="The question to use for general query, feature implementation, and code change impact")
+    single_parser.add_argument("--summary-dir", default="summary", help="Path to the summary directory")
+    single_parser.add_argument("--no-verify", action="store_true", help="Skip self-verification step")
+    single_parser.add_argument("--response-format", choices=["both", "original", "verification"], default="both", 
+                              help="Which responses to show: both, original only, or verification only")
+    
     # Interactive mode command
     interactive_parser = subparsers.add_parser("interactive", help="Start interactive mode")
     interactive_parser.add_argument("--summary-dir", default="summary", help="Path to the summary directory")
@@ -133,6 +148,36 @@ def main():
             # If no response format specified or verification is disabled, print as is
             print(f"\n{response}")
         
+    elif args.command == "comprehensive":
+        print("\nPerforming comprehensive analysis...")
+        response = processor.analyze_comprehensive(args.query_text, args.feature_description, args.change_description)
+        print(f"\n{response}")
+        
+    elif args.command == "analyze":
+        print("\nPerforming comprehensive analysis with single question...")
+        response = processor.analyze_comprehensive_single_question(args.question, verify=verify)
+        
+        # Handle response format
+        if hasattr(args, 'response_format') and verify:
+            if "## Original Response:" in response and "## Verification:" in response:
+                if args.response_format == "original":
+                    # Extract only the original response
+                    original_part = response.split("## Verification:")[0].replace("## Original Response:", "").strip()
+                    print(f"\n{original_part}")
+                elif args.response_format == "verification":
+                    # Extract only the verification
+                    verification_part = response.split("## Verification:")[1].strip()
+                    print(f"\n{verification_part}")
+                else:
+                    # Show both (default)
+                    print(f"\n{response}")
+            else:
+                # If the response doesn't have the expected format, just print it as is
+                print(f"\n{response}")
+        else:
+            # If no response format specified or verification is disabled, print as is
+            print(f"\n{response}")
+        
     elif args.command == "interactive":
         run_interactive_mode(processor, verify)
         
@@ -145,6 +190,8 @@ def run_interactive_mode(processor, verify):
     print("Type 'exit' or 'quit' to end the session.")
     print("Type 'feature: <description>' to analyze feature implementation.")
     print("Type 'impact: <description>' to analyze code change impact.")
+    print("Type 'comprehensive: <query> | <feature> | <change>' to perform a comprehensive analysis.")
+    print("Type 'analyze: <question>' to perform a comprehensive analysis with a single question.")
     print("Type any other text to process as a general query.\n")
     
     while True:
@@ -164,6 +211,30 @@ def run_interactive_mode(processor, verify):
                 change_desc = user_input[8:].strip()
                 print("\nAnalyzing code change impact...")
                 response = processor.analyze_code_change_impact(change_desc)
+                
+            elif user_input.lower().startswith("comprehensive: "):
+                # Parse the comprehensive query format: query | feature | change
+                parts = user_input[14:].split("|")
+                if len(parts) != 3:
+                    print("\nError: Comprehensive analysis requires three parts separated by '|'.")
+                    print("Format: comprehensive: <query> | <feature> | <change>")
+                    continue
+                    
+                query = parts[0].strip()
+                feature = parts[1].strip()
+                change = parts[2].strip()
+                
+                print("\nPerforming comprehensive analysis...")
+                response = processor.analyze_comprehensive(query, feature, change)
+                
+            elif user_input.lower().startswith("analyze: "):
+                question = user_input[9:].strip()
+                if question.startswith("'") and question.endswith("'"):
+                    question = question[1:-1]
+                print("\nProcessing query...")
+                logger.info(f"Processing query: {user_input}")
+                response = processor.analyze_comprehensive_single_question(question, verify=verify)
+                print(response)
                 
             else:
                 print("\nProcessing query...")
@@ -217,6 +288,32 @@ def run_demo(processor, verify):
     print("Analyzing code change impact...")
     response = processor.analyze_code_change_impact(change)
     print(f"\nIMPACT ANALYSIS:\n{response}")
+    
+    input("\nPress Enter to continue...")
+    
+    # Example comprehensive analysis
+    query = "How does the transaction flow work in this application?"
+    feature = "Add a feature to allow users to set up recurring transfers between accounts"
+    change = "Change the Transaction entity to include a 'category' field for transaction categorization"
+    
+    print(f"\n\n{'='*80}\nCOMPREHENSIVE ANALYSIS\n{'='*80}\n")
+    print(f"Query: {query}")
+    print(f"Feature: {feature}")
+    print(f"Change: {change}")
+    print("\nPerforming comprehensive analysis...")
+    response = processor.analyze_comprehensive(query, feature, change)
+    print(f"\nCOMPREHENSIVE ANALYSIS:\n{response}")
+    
+    input("\nPress Enter to continue...")
+    
+    # Example single question comprehensive analysis
+    single_question = "How can we implement recurring transfers and what would be the impact of adding a category field to transactions?"
+    
+    print(f"\n\n{'='*80}\nANALYZE COMPREHENSIVE ANALYSIS\n{'='*80}\n")
+    print(f"Question: {single_question}")
+    print("\nPerforming comprehensive analysis with single question...")
+    response = processor.analyze_comprehensive_single_question(single_question, verify=verify)
+    print(f"\nANALYZE COMPREHENSIVE ANALYSIS:\n{response}")
 
 if __name__ == "__main__":
     try:
