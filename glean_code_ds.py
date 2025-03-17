@@ -1230,7 +1230,7 @@ def generate_llm_prompt_templates():
 4. Identify any potential impacts or considerations across components
 5. If any information seems missing, note assumptions you're making
 """
-    
+
     # Feature implementation prompt template
     feature_implementation_template = """# Feature Implementation Analysis
 
@@ -1273,7 +1273,7 @@ Implementing [Feature Name] would require:
    {list of challenges and considerations}
 ```
 """
-    
+
     # Code change impact prompt template
     code_change_impact_template = """# Code Change Impact Analysis
 
@@ -1313,7 +1313,98 @@ Changing [Component] would impact:
    {list of risks and considerations}
 ```
 """
-    
+
+    # Comprehensive analysis prompt template
+    comprehensive_analysis_template = """# Comprehensive Spring Boot Application Analysis
+
+## Application Context
+{insert relevant high-level application summary}
+
+## Components Relevant to Analysis
+{insert summaries of the 3-5 most relevant components}
+
+## API Flows Related to Analysis
+{insert API flow data for endpoints relevant to the analysis}
+
+## Component Relationship Matrix
+{insert relevant portion of component relationship matrix}
+
+## Analysis Requests
+### General Query
+{insert specific question}
+
+### Feature Implementation
+{insert feature description}
+
+### Code Change Impact
+{insert description of proposed code change}
+
+## Analysis Instructions
+
+### 1. General Query Analysis
+1. Analyze the question in relation to the provided Spring Boot application context
+2. Provide a detailed technical response addressing the question
+3. Cite specific code files and components in your answer using the format [FileName.java]
+4. Identify any potential impacts or considerations across components
+
+### 2. Feature Implementation Analysis
+1. Analyze how the requested feature would be implemented in this Spring Boot application
+2. Identify which existing components would need to be modified
+3. Specify any new components that would need to be created
+4. Describe the changes required to each component
+5. Identify potential challenges or considerations for implementation
+
+### 3. Code Change Impact Analysis
+1. Analyze the impact of the proposed change on the Spring Boot application
+2. Identify all components that would be directly affected by the change
+3. Identify all components that would be indirectly affected through dependencies
+4. Assess the scope of the change (isolated vs. widespread)
+5. Identify potential risks or considerations
+
+## Response Format
+
+### General Query Response
+Provide a detailed technical response to the query, citing specific code files and components using the format [FileName.java]. Include any relevant code examples, architectural considerations, and potential limitations.
+
+### Feature Implementation Response
+```
+Implementing [Feature Name] would require:
+
+1. Modifications to existing components:
+   - [ExistingComponent1.java]: {specific changes}
+   - [ExistingComponent2.java]: {specific changes}
+
+2. New components needed:
+   - [NewComponent1.java]: {purpose and functionality}
+   - [NewComponent2.java]: {purpose and functionality}
+
+3. Implementation steps:
+   {step-by-step implementation plan}
+
+4. Potential challenges:
+   {list of challenges and considerations}
+```
+
+### Code Change Impact Response
+```
+Changing [Component] would impact:
+
+1. Direct impacts:
+   - [Component1.java]: {specific impact}
+   - [Component2.java]: {specific impact}
+
+2. Indirect impacts (through dependencies):
+   - [Component3.java] depends on [Component1.java]: {specific impact}
+   - [Component4.java] uses [Component2.java]: {specific impact}
+
+3. Scope assessment:
+   {assessment of whether the change is isolated or widespread}
+
+4. Risks and considerations:
+   {list of risks and considerations}
+```
+"""
+
     # Self-correction mechanism prompt template
     self_correction_template = """# Self-Correction Review
 
@@ -1361,18 +1452,20 @@ Corrected response:
     # Save the templates
     with open(os.path.join(llm_prompts_dir, "general_analysis_template.md"), 'w', encoding='utf-8') as f:
         f.write(general_analysis_template)
-    
+        
     with open(os.path.join(llm_prompts_dir, "feature_implementation_template.md"), 'w', encoding='utf-8') as f:
         f.write(feature_implementation_template)
-    
+        
     with open(os.path.join(llm_prompts_dir, "code_change_impact_template.md"), 'w', encoding='utf-8') as f:
         f.write(code_change_impact_template)
-    
+        
+    with open(os.path.join(llm_prompts_dir, "comprehensive_analysis_template.md"), 'w', encoding='utf-8') as f:
+        f.write(comprehensive_analysis_template)
+        
     with open(os.path.join(llm_prompts_dir, "self_correction_template.md"), 'w', encoding='utf-8') as f:
         f.write(self_correction_template)
-    
-    logging.info(f"LLM prompt templates saved to {llm_prompts_dir}")
-    return llm_prompts_dir
+        
+    logging.info("LLM prompt templates generated successfully")
 
 
 if __name__ == "__main__":
